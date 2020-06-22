@@ -1,0 +1,22 @@
+export const imagesArr:{id:number, src:string, alt:string,}[] = [
+  {id:1, src: './imgs/Arsenal.png', alt:"Arsenal"},
+  {id:2, src:'./imgs/Aston-Villa.png', alt:"Aston Villa"},
+  {id:3, src:'./imgs/Bournemouth.png', alt:"Bournemouth"},
+  {id:4, src:'./imgs/Brighton.png', alt:"Brigton"},
+  {id:5, src:'./Burnley.png', alt:"Burnley"},
+  {id:6, src:'./Chelsea.png', alt:"Chelsea"},
+  {id:7, src:'./Crystal-Palace.png', alt:"Crystal Palace"},
+  {id:8, src:'./Everton.png', alt:"Everton"},
+  {id:9, src:'./Leicester.png', alt:"Leicester"},
+  {id:10, src:'./Liverpool.png', alt:"Liverpool"},
+  {id:11, src:'./Manchester-City.png', alt:"Manchester City"},
+  {id:12, src:'./Manchester-Utd.png', alt:"Manchester Utd"},
+  {id:13, src:'./Newcastle.png', alt:"Newcastle"},
+  {id:14, src:'./Norwich.png', alt:"Norwhich"},
+  {id:15, src:'./Sheffield-Utd.png', alt:"Sheffield Utd"},
+  {id:16, src:'./Southampton.png', alt:"Southampton"},
+  {id:17, src:'./Tottenham.png', alt:"Tottenham"},
+  {id:18, src:'./Watford.png', alt:"Watford"},
+  {id:19, src:'./West-Ham.png', alt:"West Ham"},  
+  {id:20, src:'./Wolves.png', alt:"Wolves"}
+];
