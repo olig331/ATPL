@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {Selector} from './components/Selector';
+import {TeamHighlights} from './components/TeamHighlights';
 import './style/style.css';
 
 export const App: React.FC = () =>{
@@ -14,6 +15,9 @@ export const App: React.FC = () =>{
     <div>
       <Selector 
         teamSelector={teamSelect}
+      />
+      <TeamHighlights 
+        chosenTeam={team}
       />
     </div>
   );

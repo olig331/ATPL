@@ -12,11 +12,11 @@ export const Selector: React.FC<ChildProps> = (props) => {
   const teamImages = importAll(require.context('../imgs', false, /\.(png|jpe?g|svg)$/));
 
   const nameRegexFunc = (name:string):string => {
-    let regex:RegExp, result:any
-      regex = /a\/(.*?)(\.)/
+    let regex:RegExp, result:any;
+    regex = /a\/(.*?)(\.)/;
     result = name.match(regex);
-    return result[1]
-  }
+    return result[1];
+  };
 
   return (
     <div>
@@ -24,5 +24,5 @@ export const Selector: React.FC<ChildProps> = (props) => {
         <img onClick={()=>props.teamSelector(nameRegexFunc(x))} src={x} key={i} alt={nameRegexFunc(x)} className="img-selector"/>
       ))}
     </div>
-  )
-}
+  );
+};
