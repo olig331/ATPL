@@ -9,6 +9,7 @@ export const App: React.FC = () =>{
 
   function teamSelect(input:string):void{
     setteam(input)
+    console.log(input);
   }
 
   return (
