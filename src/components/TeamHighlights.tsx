@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 
 
 interface passedProps{
@@ -7,36 +7,36 @@ interface passedProps{
 
 export const TeamHighlights: React.FC<passedProps> = ({chosenTeam}) => {
 
-  const [highlights, sethighlights] = useState<{}>([])
+  const [highlights, sethighlights] = useState<string[]>([])
 
-  const url:string = "https://www.scorebat.com/video-api/v1/";
+  const replaceWatch =(items:string[])=>{
+    sethighlights(items.map((x:string)=>{
+      return x.replace("watch?v=", "embed/");
+    }));
+  }
 
-  // const getHighlights = async (): Promise<void>=>{
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   console.log(data);
-  //   let highlightArray:any[] =[];
-
-  //   // setting highlights state to be only highlights relative to selected team
-  //   const teamOnly = await data.map((item:any)=>{
-  //       if(item.side1.name === chosenTeam || item.side2.name === chosenTeam){
-  //         highlightArray = highlightArray.concat(item)
-  //       }
-  //   });
-  //   sethighlights(highlightArray)
-  // };
-
-  const getHighlights = async ():Promise<void> => {
-    const response = await fetch('/highlights');
-    console.log(await response.json());
+  const getHighlights = async ():Promise<any> => {
+    const response = await fetch(`/highlights?team=${chosenTeam}`);
+    let items = await response.json();
+    console.log(items)
+    replaceWatch(await items);
   };
 
+  useEffect(() => {
+    getHighlights()
+  }, [chosenTeam])
 
   return (
     <div>
+      <h4>{chosenTeam}</h4>
       <button onClick={()=>getHighlights()}>Highlights</button>
-      <iframe src='https://www.scorebat.com/embed/v/5eee82ea8054e/?s=2'></iframe>
+      <iframe width="500" height="410" frameBorder="0" allowFullScreen title="highlight" src={highlights[0]}></iframe>
       <button onClick={() => console.log(highlights)}>btn2</button>
+      <ul>
+        {highlights.map((x,i)=>{
+          return <li key={i}>{x+1}</li>
+        })}
+      </ul>
     </div>
   );
 };

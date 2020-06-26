@@ -15,12 +15,14 @@ export const Selector: React.FC<ChildProps> = (props) => {
     let regex:RegExp, result:any;
     regex = /a\/(.*?)(\.)/;
     result = name.match(regex);
-    return result[1];
+    result = result[1]
+    result = result.replace("-", " ");
+    return result;
   };
 
   return (
     <div>
-      {teamImages.map((x:string ,i:number)=>(
+      {teamImages.map((x:string, i:number)=>(
         <img onClick={()=>props.teamSelector(nameRegexFunc(x))} src={x} key={i} alt={nameRegexFunc(x)} className="img-selector"/>
       ))}
     </div>
