@@ -1,10 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {bgArr} from '../style/bgColorsArr';
 
 interface ChildProps{
   teamSelector: (input:string) =>void
 }
 
 export const Selector: React.FC<ChildProps> = (props) => {
+  const [backgroundColor, setbackgroundColor] = useState<string>("");
+
+  // set background color based on team selected (BG ARR located in style folder)
+  const bgColorSetFunc =(team:string)=>{
+    const values = Object.values(bgArr)
+    const keys = Object.keys(bgArr);
+    let color:string =""
+    for(let i:number =0; i < keys.length; i++){
+      if(team === keys[i]){
+         color = values[i]
+      }
+    }
+    setbackgroundColor(color)
+  }
 
   function importAll(items:any) {
     return items.keys().map(items);
@@ -21,10 +36,12 @@ export const Selector: React.FC<ChildProps> = (props) => {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor: backgroundColor}}>
+      <div className="team_tile_imgs">
       {teamImages.map((x:string, i:number)=>(
-        <img onClick={()=>props.teamSelector(nameRegexFunc(x))} src={x} key={i} alt={nameRegexFunc(x)} className="img-selector"/>
+        <img onClick={()=>{props.teamSelector(nameRegexFunc(x)); bgColorSetFunc(nameRegexFunc(x))}} src={x} key={i} alt={nameRegexFunc(x)} className="img-selector"/>
       ))}
+      </div>
     </div>
   );
 };

@@ -3,13 +3,13 @@ import {Selector} from './components/Selector';
 import {TeamHighlights} from './components/TeamHighlights';
 import './style/style.css';
 
+
 export const App: React.FC = () =>{
 
-  const [team, setteam] = useState("");
+  const [team, setteam] = useState<string>("");
 
   function teamSelect(input:string):void{
     setteam(input)
-    console.log(input);
   }
 
   return (

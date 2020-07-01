@@ -1,0 +1,22 @@
+export const bgArr = {
+  "Arsenal": "#ec0024",
+  "Aston Villa": "#670e36",
+  "Bournemouth": "#b50e12",
+  "Brighton": "#005daa",
+  "Burnley": "#6C1D45",
+  "Chelsea": "#085380",
+  "Crystal Palace": "#1B458F",
+  "Everton": "#274488",
+  "Leicester": "#0053A0",
+  "Liverpool": "#C8102E",
+  "Manchester City":"#6CADDF",
+  "Manchester Utd": "#D40B29",
+  "Newcastle": "#000",
+  "Norwich": "#FFF200",
+  "Sheffield Utd": "#ec2227",
+  "Southampton": "#D71920",
+  "Tottenham": "#132257",
+  "Watford": "#FBEE23",
+  "West Ham": "#7A263A",
+  "Wolves":"#FDB913"
+}
