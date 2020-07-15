@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {bgArr} from '../style/bgColorsArr';
+import {bgArr} from '../ObjectHelpers/helperObjects';
 
 interface ChildProps{
   teamSelector: (input:string) =>void
@@ -8,7 +8,7 @@ interface ChildProps{
 export const Selector: React.FC<ChildProps> = (props) => {
   const [backgroundColor, setbackgroundColor] = useState<string>("");
 
-  // set background color based on team selected (BG ARR located in style folder)
+  // set background color based on team selected (Background Colours Object located in style folder)
   const bgColorSetFunc =(team:string)=>{
     const values = Object.values(bgArr)
     const keys = Object.keys(bgArr);
@@ -21,11 +21,13 @@ export const Selector: React.FC<ChildProps> = (props) => {
     setbackgroundColor(color)
   }
 
+  // importing all images from img folder for team images
   function importAll(items:any) {
     return items.keys().map(items);
   };
   const teamImages = importAll(require.context('../imgs', false, /\.(png|jpe?g|svg)$/));
 
+  // tidying up names with regex 
   const nameRegexFunc = (name:string):string => {
     let regex:RegExp, result:any;
     regex = /a\/(.*?)(\.)/;
@@ -45,3 +47,4 @@ export const Selector: React.FC<ChildProps> = (props) => {
     </div>
   );
 };
+
