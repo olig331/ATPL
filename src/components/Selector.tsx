@@ -33,7 +33,6 @@ export const Selector: React.FC<ChildProps> = (props) => {
     regex = /a\/(.*?)(\.)/;
     result = name.match(regex);
     result = result[1]
-    result = result.replace("-", " ");
     return result;
   };
 

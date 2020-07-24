@@ -1,7 +1,9 @@
 type FixturesObj ={
   comp_id: string,
   et_score: null | string,
-  events: any[],
+  events: {
+      assist:string, assist_id:string, extra_min:string, id:string, minute:string, player:string, player_id:string, player_id:string, result:string, team:string,   type:string
+    }[],
   formatted_date: string,
   ft_score: string,
   ht_score: string,
@@ -56,3 +58,29 @@ type TableObj ={
   team_id:string,
   team_name:string
 }
+
+type SiteOdds ={
+  last_update:number,
+  odds: {h2h:number[]},
+  site_key:string,
+  site_nice:string
+}
+
+type OddsApiReturn ={
+  commence_time: number,
+  home_team: string,
+  sites: SiteOdds,
+  sites_count:number,
+  sport_key:string,
+  sport_nice:string,
+  teams:string[]
+}
+
+type GoalStatsObj ={
+  goalScorer:string,
+  goalTime:string,
+  assist:string,
+  against:string,
+  date:string
+}
+

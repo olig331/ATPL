@@ -24,15 +24,10 @@ export const TeamHighlights: React.FC<passedProps> = ({chosenTeam}) => {
     replaceWatch(await items);
   };
 
-
   useEffect(() => {
     getHighlights()
   }, [chosenTeam])
 
-  
- 
-
-  
   return (
     <div>
       <h4>{chosenTeam}</h4>

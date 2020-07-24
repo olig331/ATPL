@@ -11,6 +11,8 @@ export const Table: React.FC<passedProps> = ({ chosenTeam }) => {
   const standings = async () => {
     const response = await fetch("http://api.football-api.com/2.0/standings/1204?Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76")
     const data = await response.json();
+    console.log(data)
+    console.log("data failed")
     settable(data)
   }
 
@@ -19,7 +21,7 @@ export const Table: React.FC<passedProps> = ({ chosenTeam }) => {
   useEffect(() => {
     standings()
     console.log("calling table api")
-  },[])
+  }, [])
 
   return (
     <div>
